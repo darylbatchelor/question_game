@@ -1,24 +1,19 @@
 <?php
 
 if ($_POST) {
-include('pages/connect.php');
-	$email = mysqli_real_escape_string($con, $_POST['email']);
-	$password = md5(mysqli_real_escape_string($con, $_POST['password']));
-
-	
-
-	$query = "SELECT * FROM `user_questions` WHERE `email` = '$email' AND `password` = '$password'";
-	
-	$result = mysqli_query($con, $query);
-
-	if (mysqli_num_rows($result) == 1) {
+  //include('pages/connect.php');
+	//$email = mysqli_real_escape_string($con, $_POST['email']);
+	//$password = md5(mysqli_real_escape_string($con, $_POST['password']));
+	//$query = "SELECT * FROM `user_questions` WHERE `email` = '$email' AND `password` = '$password'";
+	//$result = mysqli_query($con, $query);
+	//if (mysqli_num_rows($result) == 1) {
 session_start();
   $_SESSION['loggedin'] = true;
   $_SESSION['gamecreated'] = false;
   header('location:index.php');
-	} else {
-		$message = "<p class='error'>Incorrect email or password</p>";
-	}
+	//} else {
+	//	$message = "<p class='error'>Incorrect email or password</p>";
+	//}
 }
 
 
@@ -41,7 +36,7 @@ session_start();
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
+        <link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/bootstrap.min.css">
       
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
@@ -70,15 +65,15 @@ session_start();
         	<form role="form" method="post">
                 <div class="form-group">
                   
-                  <input type="email" class="focus" id="email" name="email" placeholder="Email">
+                  <input type="hidden" class="focus" id="email" name="email" placeholder="Email">
                 </div>
                 <div class="form-group">
                   
-                  <input type="password" class="focus" id="password" name="password" placeholder="Password">
+                  <input type="hidden" class="focus" id="password" name="password" placeholder="Password">
                 </div>
               <!-- loop ends here-->
      
-                <button type="submit" class="myButton">Log In</button>
+                <button type="submit" class="myButton">Start a Game</button>
             
           </form>
         		

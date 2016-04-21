@@ -3,6 +3,11 @@
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+@font-face {
+    font-family:customfont;
+    src: url(fonts/LoveRiot.ttf);
+}
+
 .Site{
 display:flex;
 min-height:100vh;
@@ -21,6 +26,7 @@ background-image: linear-gradient(to top,#304ffe 0,#304ffe 100%);
 .title{
     color:#B5B5B5 !important;
     text-shadow: 0 0 10px red;
+    font-family: 'Permanent Marker', cursive;
 }
 
 .jumbotron{
