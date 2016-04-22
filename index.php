@@ -53,14 +53,28 @@ include('pages/connect.php');
 //need to fix this - - it resets after every button press
 //$sexual = 0;
 $makesexual = "`Category` <> 'Sexual' AND";
-$checked = "";
+$sexualchecked = "";
+$somesexual = "";
+
+
+if (isset($_GET['somesexual'])) {
+  $somesexual = $_GET['somesexual'];
+
+
+if ($somesexual == 1) {
+  $makesexual = "";
+  $somesexualchecked = "checked";
+}
+
+}
+
 if (isset($_GET['sexual'])) {
   $sexual = $_GET['sexual'];
 
 
 if ($sexual == 1) {
   $makesexual = "`Category` = 'Sexual' AND";
-  $checked = "checked";
+  $sexualchecked = "checked";
 }
 
 
@@ -180,9 +194,14 @@ if (mysqli_num_rows($result) > 1) {
         
     
                 <div class="form-group">
-                  <label class="sexual-label" for="sexual">Make sexual?</label><br>
+                  <label class="sexual-label" for="sexual">All sexual questions?</label><br>
                   <input type="hidden" name="sexual" value="0" />
-                  <input type="checkbox" id="sexual" data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="danger" data-offstyle="default" value="1" name="sexual" <?php if (isset($checked)) {echo $checked;}?>
+                  <input type="checkbox" id="sexual" data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="danger" data-offstyle="default" value="1" name="sexual" <?php if (isset($sexualchecked)) {echo $sexualchecked;}?>
+                </div><br><br><br>
+                  <div class="form-group">
+                  <label class="sexual-label" for="somesexual">Mix: Some sexual questions?</label><br>
+                  <input type="hidden" name="somesexual" value="0" />
+                  <input type="checkbox" id="somesexual" data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="danger" data-offstyle="default" value="1" name="somesexual" <?php if (isset($somesexualchecked)) {echo $somesexualchecked;}?>
                 </div>
                 <br><br><br>
 
